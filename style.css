@@ -63,11 +63,9 @@
 
 }
 
-.hidden-content {
-    display: none;
-}
-
 .card {
+   display: flex;
+   flex-direction: column;
     background-color: white;
     border-radius: 5px;
     min-width: 10rem;
@@ -106,9 +104,12 @@
     padding: 1rem;
 }
 
+
+
 .list-input button {
     font-size: 11px;
     height: 100%;
+    width: 30%;
     padding-inline: 1.5rem;
     position: absolute;
     top: 0;
@@ -121,11 +122,15 @@
     font-weight: 500;
 }
 
+.list-input button:hover {
+  background-color: rgb(255, 69, 0, 0.8);
+}
+
 .todo-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: orangered;
+  background-color: darkgrey;
   padding: 1rem;
   border-radius: 10px;
   
@@ -142,4 +147,25 @@
 .checkbox {
   height: 25px;
   width: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+.delete-tasks {
+  width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+  font-size: 11px;
+  background-color: orangered;
+  border-style: none;
+  padding: 0.5rem;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-tasks:hover {
+  background-color: rgb(255, 69, 0, 0.8);
 }
