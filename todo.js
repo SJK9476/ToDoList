@@ -4,7 +4,14 @@ const listInput = document.querySelector(".list-input");
 const checkboxDelete = document.querySelectorAll(".checkbox");
 const deleteButton = document.querySelector(".delete-tasks");
 
-let todoList = [];
+let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
+if (todoList.length > 0) {
+  document.querySelector(".todo-list").classList.remove("hidden");
+  document.querySelector(".delete-tasks").classList.remove("hidden");
+}
+
+renderTodoList();
 
 submitButton.addEventListener("click", () => {
   const checkIfhidden = document.querySelector(".todo-list");
@@ -36,8 +43,6 @@ function addTodo(item) {
   }
 }
 
-let todoHTML = "";
-
 function renderTodoList() {
   const renderedList = document.querySelector(".todo-list");
   renderedList.innerHTML = "";
@@ -52,6 +57,8 @@ function renderTodoList() {
 
     renderedList.appendChild(newListItem);
   });
+
+  saveToStorage();
 }
 
 deleteButton.addEventListener("click", () => {
@@ -67,3 +74,7 @@ deleteButton.addEventListener("click", () => {
   }
   renderTodoList();
 });
+
+function saveToStorage() {
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+}
